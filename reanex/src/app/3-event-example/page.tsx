@@ -2,18 +2,18 @@
 import React from "react";
 
 const EventExample = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("Click");
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    console.log("Searched!");
-  };
-
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
     e.preventDefault();
-    console.log(`Post ${id} has been deleted!`);
+    console.log(`Post ${id} deleted`);
   };
 
   return (
