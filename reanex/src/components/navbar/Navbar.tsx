@@ -1,17 +1,17 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
   return (
-    <div className='navbar'>
-      <span className='logo'>lama dev</span>
+    <div className="navbar">
+      <span className="logo">TSFB</span>
       <div className="links">
-        <Link href="#">Homepage</Link>
-        <Link href="#">About</Link>
-        <Link href="#">Contact</Link>
+        <Link href="#">Menu 1</Link>
+        <Link href="#">Menu 2</Link>
+        <Link href="#">Menu 3</Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
