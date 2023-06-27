@@ -1,16 +1,10 @@
 "use client";
+import { UserProps } from "@/types/types";
 import React, { useState } from "react";
-
-type UserType = {
-  sessionId: number;
-  name: string;
-};
 
 const UseStateExample = () => {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState<UserType | null>(null);
-  // OR
-  // const [user, setUser] = useState<UserType>();
+  const [user, setUser] = useState<UserProps | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -23,18 +17,27 @@ const UseStateExample = () => {
       sessionId: Math.random(),
     });
   };
+
+  const handleTo = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setUser(null);
+  };
+
   return (
     <div className="useStateExample">
       {user ? (
-        `${user.name} logged in`
+        <>
+          <p>
+            Hello {user.name}, your session id is {user.sessionId}
+          </p>
+          <button onClick={handleTo}>Back</button>
+        </>
       ) : (
         <form>
           <input type="text" placeholder="Username" onChange={handleChange} />
           <button onClick={handleClick}>Login</button>
         </form>
       )}
-      {/* BE AWARE */}
-      {user?.name}
     </div>
   );
 };
