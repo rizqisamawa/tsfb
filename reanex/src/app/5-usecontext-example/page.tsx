@@ -1,7 +1,22 @@
-import React from "react";
+"use client";
+import { ThemeContext } from "@/context/ThemeContext";
+import React, { useContext } from "react";
 
 const UseContextExample = () => {
-  return <div>UseContextExample</div>;
+  const { state, dispatch } = useContext(ThemeContext);
+
+  return (
+    <div className="useContextExample">
+      <button onClick={() => dispatch({ type: "CHANGE_THEME" })}>
+        Change Theme
+      </button>
+      <button
+        onClick={() => dispatch({ type: "CHANGE_FONTSIZE", payload: 20 })}
+      >
+        Change Font Size
+      </button>
+    </div>
+  );
 };
 
 export default UseContextExample;
